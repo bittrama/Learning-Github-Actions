@@ -10,3 +10,17 @@ jobs:
         run: echo "Hi this is my first workflow"
       - name: Checking OS Release
         run: cat /etc/os-release
+      - name: Calling sleep
+        run: sleep 20
+  job2:
+    name: JOB2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking the Hostname
+        run: hostname
+      - name: Running Multiple Commands
+        run:
+          echo "Hi from Costa Rica"
+          echo "Current time is `date`"
+        
+  
