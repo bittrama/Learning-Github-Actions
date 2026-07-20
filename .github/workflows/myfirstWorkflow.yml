@@ -1,6 +1,9 @@
 name: my-First-Workflow
 on:
     push:
+        branches:
+          - dev
+          - 'feature-*'
 
 jobs:
   job1:
@@ -25,26 +28,6 @@ jobs:
           with:
               name: single_file
               path: ./myartifact.txt
-        - name: Upload from directory
-          uses: actions/upload-artifact@v7.0.1
-          with:
-              name: directory_artifacts
-              path: artifacts/
-        - name: Upload from multiple paths
-          uses: actions/upload-artifact@v7.0.1
-          with:
-              name: multiple_paths
-              path: |
-                  ./myartifact.txt
-                  artifacts/
-        - name: Upload from multiple paths with exclusions
-          uses: actions/upload-artifact@v7.0.1
-          with:
-              name: multiple_paths_with_exclusions
-              path: |
-                  ./myartifact.txt
-                  artifacts/
-                  !**/hostname.txt
   job2:
     name: JOB2
     runs-on: ubuntu-latest
